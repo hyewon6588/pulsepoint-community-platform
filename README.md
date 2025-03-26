@@ -1,5 +1,5 @@
 # pulsepoint-community-platform
-# Vite MF + GraphQL Community Platform
+## Vite MF + GraphQL Community Platform
 
 A modern community engagement platform built with Micro Frontends (Vite Module Federation) and GraphQL Microservices using Apollo Server and Express.js.  
 
@@ -42,4 +42,3 @@ A modern community engagement platform built with Micro Frontends (Vite Module F
 - Help Requests with volunteer/resolution features
 - Role-based UI rendering (e.g. only Residents can request help)
 - Federated GraphQL schema integration
-
