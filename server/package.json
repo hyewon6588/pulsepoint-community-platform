@@ -6,7 +6,7 @@
   "scripts": {
     "start:auth": "node ./microservices/auth-microservice.js",
     "start:community": "node microservices/community-microservice.js",
-    "start:gateway": "timeout /t 5 /nobreak >nul && node ./gateway.js",
+    "start:gateway": "timeout /t 10 /nobreak >nul && node ./gateway.js",
     "start:all": "npm-run-all --parallel start:auth start:community start:gateway"
   },
   "keywords": [],
