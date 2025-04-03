@@ -11,7 +11,8 @@ connectDB();
 // Import Mongoose models
 const CommunityPost = require("../models/CommunityPost");
 const HelpRequest = require("../models/HelpRequest");
-// const User = require("../models/User");
+
+const { processCommunityQuery } = require("../utils/aiAgent");
 
 const app = express();
 const port = 3004;
@@ -49,9 +50,16 @@ const typeDefs = gql`
     updatedAt: String
   }
 
+  type AIResponse {
+    text: String!
+    suggestedQuestions: [String]!
+    retrievedPosts: [CommunityPost]!
+  }
+
   type Query {
     getPosts: [CommunityPost]
     getHelpRequests: [HelpRequest]
+    communityAIQuery(input: String!): AIResponse!
   }
 
   type Mutation {
@@ -79,6 +87,15 @@ const resolvers = {
 
     // Get all help requests
     getHelpRequests: async () => await HelpRequest.find(),
+    communityAIQuery: async (_, { input }) => {
+      try {
+        const response = await processCommunityQuery(input);
+        return response;
+      } catch (err) {
+        console.error("AI Query Error:", err);
+        throw new Error("Failed to process AI query.");
+      }
+    },
   },
   Mutation: {
     // Create a new community post
