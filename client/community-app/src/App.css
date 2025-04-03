@@ -40,3 +40,112 @@
 .read-the-docs {
   color: #888;
 }
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-title:hover {
+  color: #198754;
+  cursor: pointer;
+  text-decoration: underline;
+}
+* {
+  font-family: "Comic Neue", cursive;
+}
+body {
+  background-color: #fdfaf4;
+  font-family: "Comic Neue", cursive;
+}
+
+.village-board-container {
+  margin-top: 7rem;
+}
+
+.village-board-title {
+  font-size: 2.5rem;
+  color: #4e342e;
+  font-weight: 800;
+  text-align: center;
+  font-family: "Comic Neue", cursive;
+  margin-bottom: 2.5rem;
+}
+
+.village-card {
+  position: relative;
+  border: none;
+  border-radius: 8px;
+  background-color: #fffdf7;
+  box-shadow: 2px 2px 5px rgba(80, 60, 40, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.village-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.post-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #3e2723;
+  font-family: "Comic Neue", cursive;
+}
+
+.post-content-preview {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.pin {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), inset 0 0 2px rgba(0, 0, 0, 0.05);
+  position: absolute;
+  top: 1.1rem;
+  left: 50%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.pin-glare {
+  width: 6px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  border-radius: 50%;
+}
+
+.village-dialog {
+  max-width: 540px;
+  width: 90%;
+  border-radius: 20px;
+}
+
+.village-modal {
+  border: 4px solid #d7c5a1;
+  border-radius: 20px;
+  background-color: #fdf6e3;
+  font-family: "Comic Neue", cursive;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.village-modal h5,
+.village-modal p,
+.village-modal small {
+  font-family: "Comic Neue", cursive;
+}
+
+.village-modal-button:hover {
+  background-color: #f0e0c6 !important;
+  border-color: #e0d3b8 !important;
+  color: #ffffff !important;
+}
+
+.chatbot {
+  font-family: "Comic Neue", sans-serif !important;
+}

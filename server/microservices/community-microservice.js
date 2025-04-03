@@ -29,7 +29,7 @@ const typeDefs = gql`
 
   type CommunityPost {
     id: ID!
-    author: ID!
+    author: User!
     title: String!
     content: String!
     category: String!
@@ -109,18 +109,14 @@ const resolvers = {
       );
     },
   },
-  // User: {
-  //   __resolveReference: async (user) => {
-  //     return await User.findById(user.id);
-  //   },
-  // },
-  // HelpRequest: {
-  //   // Resolve volunteers as array of User references with only 'id'
-  //   volunteers: async (parent) => {
-  //     if (!parent.volunteers || parent.volunteers.length === 0) return [];
-  //     return parent.volunteers.map((id) => ({ __typename: "User", id }));
-  //   },
-  // },
+  CommunityPost: {
+    author: (parent) => {
+      return {
+        __typename: "User",
+        id: parent.author,
+      };
+    },
+  },
   HelpRequest: {
     volunteers: async (parent) => {
       if (!parent.volunteers || parent.volunteers.length === 0) return [];
