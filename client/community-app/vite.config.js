@@ -13,6 +13,7 @@ export default defineConfig({
         "./CreatePost": "./src/components/CreatePost",
         "./CreateHelpRequest": "./src/components/CreateHelpRequest",
         "./HelpRequestList": "./src/components/HelpRequestList",
+        "./AIChatbot": "./src/components/AIChatbot",
       },
       shared: [
         "react",

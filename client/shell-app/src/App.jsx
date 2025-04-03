@@ -4,6 +4,8 @@ import Home from "./Home";
 import { Routes, Route, Link } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { Button } from "react-bootstrap";
 import "./App.css";
 
 // Apollo Client setup
@@ -19,11 +21,13 @@ const PostList = lazy(() => import("communityApp/PostList"));
 const CreatePost = lazy(() => import("communityApp/CreatePost"));
 const CreateHelpRequest = lazy(() => import("communityApp/CreateHelpRequest"));
 const HelpRequestList = lazy(() => import("communityApp/HelpRequestList"));
+const AIChatbot = lazy(() => import("communityApp/AIChatbot"));
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [role, setRole] = useState("");
+  const [showChat, setShowChat] = useState(false);
 
   // Sync login state from localStorage
   useEffect(() => {
@@ -71,7 +75,7 @@ function App() {
         >
           <Container>
             <Navbar.Brand as={Link} to="/">
-              My App
+              Pulsepoint Community
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -131,6 +135,32 @@ function App() {
               <Route path="/create-help" element={<CreateHelpRequest />} />
               <Route path="/help-requests" element={<HelpRequestList />} />
             </Routes>
+            <Button
+              onClick={() => setShowChat(!showChat)}
+              variant="success"
+              style={{
+                position: "fixed",
+                bottom: "60px",
+                right: "60px",
+                zIndex: 9999,
+                width: "80px",
+                height: "80px",
+                borderRadius: "50%",
+              }}
+            >
+              <i className="bi bi-chat-dots" style={{ fontSize: "34px" }} />
+            </Button>
+            <div
+              style={{
+                position: "fixed",
+                bottom: "90px",
+                right: "20px",
+                zIndex: 9900,
+                display: showChat ? "block" : "none",
+              }}
+            >
+              <AIChatbot />
+            </div>
           </Suspense>
         </Container>
       </div>
